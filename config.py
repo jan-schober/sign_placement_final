@@ -30,14 +30,14 @@ https://ess-confluence.fzi.de:8443/pages/viewpage.action?pageId=325287960
 
 config_dict = {}
 
-#20180925101535_camera_frontcenter_000039182
+#20180810142822_camera_frontcenter_000009668
 #All
 
 config_dict = {
     'paths': {
         'camera_image_root_path': '/media/jan/TEST/camera_lidar_semantic/camera_lidar_semantic/',
-        'sub_dir': '20180925_135056/',
-        'file_name': 'All',
+        'sub_dir': '20180810_142822/',
+        'file_name': '20180810142822_camera_frontcenter_000009668',
         'cams_lidar_json_path': '/media/jan/TEST/camera_lidar_semantic/',
         'result_export_path': '/media/jan/TEST/_results/final/',
         'sign_path': '/home/jan/PycharmProjects/a2d2_dataset_scripts/get_sign_into_image/50_sign.png',
