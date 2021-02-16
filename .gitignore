@@ -1,0 +1,10 @@
+__pycache__/
+venv/
+.idea/
+get_real_sign_size_from_semantic/final_pic.png
+get_real_sign_size_from_semantic/sign_data.json
+*/__pycache__
+get_depth_street_edge/final_dict.json
+get_depth_street_edge/final_pic.png
+others/vehicle_standing_images.json
+get_sign_into_image/50_sign.png
