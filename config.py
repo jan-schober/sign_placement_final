@@ -14,7 +14,7 @@ Following parameters should be set:
     free_space_sign_path:       Path to sign for debbuging image, get pasted on image if the free space check sort it out
     small_angle_sign_path:      Path to sign for debbuging image, get pasted on image if the small angle check sort it out
     debug_image:                True --> export an extra image with all the signs which were sorted out
-    step_size_image:            If you want to iterate over all images, you can decide if you want to analyse ever n image
+    step_size_image:            If you want to iterate over all images choose step_size = 1, otherwise choose an step size
     hex_color:                  Semantic color of the street in the A2D2-Dataset (#ff00ff)
     n_slices:                   The number of streetedges we search for each street side
     threshold_lidar:            Number of Px which the lidar can be away from the street edege point
@@ -27,11 +27,10 @@ My confluence site with further information and explanations:
 https://ess-confluence.fzi.de:8443/pages/viewpage.action?pageId=325287960
 """
 
-
 config_dict = {}
 
-#20180810142822_camera_frontcenter_000009668
-#All
+# 20180810142822_camera_frontcenter_000009668
+# All
 
 config_dict = {
     'paths': {
@@ -58,13 +57,13 @@ config_dict = {
         'Vertical_Pixels': 1208,
         'Horizontal_Pixels': 1920
     },
-    'free_space':{
+    'free_space': {
         'beta_offset': 0.15,
         'gamma_offset': 0.8,
         'small_angle_rad': 0.0333,
         'z_min': 0.7,
         'z_max': 2.25,
         'c_offset': 0.5,
-        'c_depth_offset' : 0.35
+        'c_depth_offset': 0.35
     }
 }

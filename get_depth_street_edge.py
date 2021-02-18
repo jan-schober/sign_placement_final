@@ -1,10 +1,12 @@
-import numpy as np
-import cv2
 import json
-from PIL import ImageColor
-import pandas as pd
 import math
+
+import cv2
 import matplotlib.cm
+import numpy as np
+import pandas as pd
+from PIL import ImageColor
+
 
 def get_depth(camera_file_path, config):
     #a function that gives us the paths to the corresponding semantic and lidar data

@@ -1,11 +1,14 @@
-import cv2
-from get_depth_street_edge import undistort_image
-from get_depth_street_edge import get_paths
 import json
-from PIL import Image
-import numpy as np
+
+import cv2
 import matplotlib.cm
+import numpy as np
 import pandas as pd
+from PIL import Image
+
+from get_depth_street_edge import get_paths
+from get_depth_street_edge import undistort_image
+
 
 def main(camera_file_path, sign_dic_r, sign_dic_l, config, data_r, data_l):
 
