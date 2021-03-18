@@ -62,8 +62,9 @@ for camera_file_path in file_name_list[::step_size_image]:
                                                                                                   config_dict)
     data_r, data_l, sign_r, sign_l, image_with_signs = get_sign_into_image.print_signs_on_image(camera_file_path,
                                                                                                 config_dict,
-                                                                                                img_with_lidar_points,
-                                                                                                final_dict)
+                                                                                                final_dict,
+                                                                                                None,
+                                                                                                img_with_lidar_points)
 
     file_name_camera = camera_file_path.split('/')
     file_name_camera = file_name_camera[-1]
@@ -96,12 +97,12 @@ for camera_file_path in file_name_list[::step_size_image]:
         json.dump(final_dict, fp, indent=4)
 
     csv_output = zip(sign_r['depth'], sign_r['lidar_id'], sign_r['x_street'], sign_r['x'], sign_r['y_street'],
-                     sign_r['y'], sign_r['w'], sign_r['h'],
+                     sign_r['y'], sign_r['w'], sign_r['h'], sign_r['flag'],
                      sign_l['depth'], sign_l['lidar_id'], sign_l['x_street'], sign_l['x'], sign_l['y_street'],
-                     sign_l['y'], sign_l['w'], sign_l['h'])
+                     sign_l['y'], sign_l['w'], sign_l['h'], sign_l['flag'])
 
-    csv_columns = ['depth_r', 'lidar_id_r', 'x_r_street', 'x_r_sign', 'y_r_street', 'y_r_sign', 'width', 'height',
-                   'depth_l', 'lidar_id_l', 'x_l_street', 'x_l_sign', 'y_l_street', 'y_l_sign', 'width', 'height']
+    csv_columns = ['depth_r', 'lidar_id_r', 'x_r_street', 'x_r_sign', 'y_r_street', 'y_r_sign', 'width', 'height', 'flag',
+                   'depth_l', 'lidar_id_l', 'x_l_street', 'x_l_sign', 'y_l_street', 'y_l_sign', 'width', 'height', 'flag']
 
     with open(os.path.join(export_path, file_name_csv), 'w') as csv_file:
         writer = csv.writer(csv_file)

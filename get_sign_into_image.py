@@ -229,6 +229,9 @@ def get_sign_dic(
         sign_street_y_r.append(y_r)
         sign_lidar_id_r.append(lidar_id)
         sign_depth_r.append(depth_value)
+
+        # check if sign is out of image
+        flag = out_of_image_check((x_r + number_x_px),(y_r - number_y_px - sign_height_px),sign_width_px, sign_height_px,H_PX,V_PX, flag)
         flag_r.append(flag)
 
     for depth_value, x_l, y_l, lidar_id in zip(
@@ -263,6 +266,9 @@ def get_sign_dic(
         sign_street_y_l.append(y_l)
         sign_lidar_id_l.append(lidar_id)
         sign_depth_l.append(depth_value)
+
+        # check if sign is out of image
+        flag = out_of_image_check((x_l - number_x_px - sign_width_px), (y_l - number_y_px - sign_height_px), sign_width_px, sign_height_px, H_PX, V_PX, flag)
         flag_l.append(flag)
 
     # safe the information in a sign dicitonary for right and left side
@@ -432,3 +438,9 @@ def check_free_space_left_side(
             return lidar_id_point
 
     return -1
+
+def out_of_image_check(x,y,w,h, x_max, y_max, flag):
+    if x-w >= x_max or x+w <= 0 or y-h >= y_max or y <= 0:
+        return -3
+    else:
+        return flag

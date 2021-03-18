@@ -13,7 +13,7 @@ from get_depth_street_edge import undistort_image
 def main(camera_file_path, sign_dic_r, sign_dic_l, config, data_r, data_l):
 
     # load lidar config and image info
-    with open(config["paths"]["cams_lidar_json_path"] + 'cams_lidars.json', 'r') as f:
+    with open(config["paths"]["cams_lidar_json_path"], 'r') as f:
         config_data = json.load(f)
 
     with open(camera_file_path.replace('.png', '.json'), 'r') as f:
@@ -67,6 +67,8 @@ def print_sign(camera_image_undist, sign_img,grey_sign, blue_sign, sign_dic):
         elif flag == -2:
             sign_img_resize = blue_sign.resize((w, h))
             camera_image_undist.paste(sign_img_resize, (x, y), mask=sign_img_resize)
+        elif flag == -3:
+            pass
         else:
             sign_img_resize = grey_sign.resize((w, h))
             camera_image_undist.paste(sign_img_resize, (x, y), mask=sign_img_resize)
@@ -96,6 +98,8 @@ def print_street_points(sign_dic_r, sign_dic_l, camera_image):
             image_with_points = cv2.circle(camera_image, tuple(point), 1, (255, 0, 0), 5)
         elif flag == -2:
             image_with_points = cv2.circle(camera_image, tuple(point), 1, (0, 0, 255), 5)
+        elif flag == -3:
+            image_with_points = cv2.circle(camera_image, tuple(point), 1, (255, 255, 255), 5)
         else:
             image_with_points = cv2.circle(camera_image, tuple(point), 1, (50, 50, 50), 5)
     for point, flag in zip(points_l, flag_l):
@@ -103,6 +107,8 @@ def print_street_points(sign_dic_r, sign_dic_l, camera_image):
             image_with_points = cv2.circle(camera_image, tuple(point), 1, (255, 0, 0), 5)
         elif flag ==-2:
             image_with_points = cv2.circle(camera_image, tuple(point), 1, (0, 0, 255), 5)
+        elif flag == -3:
+            pass
         else:
             image_with_points = cv2.circle(camera_image, tuple(point), 1, (50, 50, 50), 5)
 
@@ -111,6 +117,8 @@ def print_street_points(sign_dic_r, sign_dic_l, camera_image):
             image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (255, 0, 0), 2)
         elif flag == -2:
             image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (0, 0, 255), 2)
+        elif flag == -3:
+            image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (255, 255, 255), 2)
         else:
             image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (50, 50, 50), 2)
 
@@ -119,6 +127,8 @@ def print_street_points(sign_dic_r, sign_dic_l, camera_image):
             image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (255, 0, 0), 2)
         elif flag == -2:
             image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (0, 0, 255), 2)
+        elif flag == -3:
+            image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (255, 255, 255), 2)
         else:
             image_with_points = cv2.line(image_with_points, tuple(L), tuple(R), (50, 50, 50), 2)
 
@@ -196,9 +206,9 @@ def map_wrong_lidar_points_onto_image(image_undist, sign_dic_r, sign_dic_l, lida
     lidar_id_r = []
     lidar_id_l = []
     for flag_r, flag_l in zip(sign_dic_r['flag'], sign_dic_l['flag']):
-        if flag_r != -1 and flag_r != -2:
+        if flag_r != -1 and flag_r != -2 and flag_r != -3:
             lidar_id_r.append(flag_r)
-        if flag_l != -1 and flag_l !=-2:
+        if flag_l != -1 and flag_l !=-2 and flag_l != -3:
             lidar_id_l.append(flag_l)
     lidar_ids = lidar_id_r + lidar_id_l
 
@@ -247,7 +257,7 @@ def get_counter(sign_dic_r, sign_dic_l):
     total_signs = len(flags)
 
     for x,y,w, h, flag in zip(x_values, y_values, w_values, h_values, flags):
-        if x-w >= 1920 or x+w <= 0 or y-h >= 1208 or y <= 0:
+        if flag == -3:
             counter_out_of_image += 1
         elif flag == -1:
             counter_sign +=1

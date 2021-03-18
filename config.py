@@ -36,15 +36,15 @@ config_dict = {
     'paths': {
         'camera_image_root_path': '/media/jan/TEST/camera_lidar_semantic/camera_lidar_semantic/',
         'sub_dir': '20180810_142822/',
-        'file_name': '20180810142822_camera_frontcenter_000009668',
-        'cams_lidar_json_path': '/media/jan/TEST/camera_lidar_semantic/',
+        'file_name': '20180810142822_camera_frontcenter_000065580',
+        'cams_lidar_json_path': '/media/jan/TEST/camera_lidar_semantic/cams_lidars.json',
         'result_export_path': '/media/jan/TEST/_results/final/',
         'sign_path': '/home/jan/PycharmProjects/a2d2_dataset_scripts/get_sign_into_image/50_sign.png',
         'free_space_sign_path': '/media/jan/TEST/50_sign_grey.png',
         'small_angle_sign_path': '/media/jan/TEST/50_sign_blue.png'
 
     },
-    'debug_images': False,
+    'debug_images': True,
     'step_size_images': 3,
     'hex_color': '#ff00ff',
     'n_slices': 70,
