@@ -44,10 +44,10 @@ config_dict = {
         'small_angle_sign_path': '/media/jan/TEST/50_sign_blue.png'
 
     },
-    'debug_images': True,
+    'debug_images': False,
     'step_size_images': 3,
     'hex_color': '#ff00ff',
-    'n_slices': 70,
+    'n_slices': 60,
     'threshold_lidar': 12.5,
     'max_distance': 30,
     'sign_size': 0.6,
