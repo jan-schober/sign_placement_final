@@ -14,7 +14,7 @@ from config import config_dict
 '''
 How to:
 1. Fill in the config dictionary in config.py
-2. Run this script
+
 3. Enjoy the results:)
 
 You need following python packages installed:
