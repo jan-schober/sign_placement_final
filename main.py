@@ -41,8 +41,6 @@ if config_dict_used['paths']['file_name'] == 'All':
     if config_dict_used['paths']['sub_dir'] == 'All':
         path_for_glob = config_dict_used['paths']['camera_image_root_path']
         file_name_list = glob.glob(path_for_glob+ '*/camera/cam_front_center/*.png')
-        print(file_name_list)
-        sys.exit()
     else:
         path_for_glob = config_dict_used['paths']['camera_image_root_path'] + config_dict_used['paths']['sub_dir']
         file_name_list = glob.glob(path_for_glob + 'camera/cam_front_center/*.png')
