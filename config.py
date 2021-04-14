@@ -5,7 +5,7 @@ The whole script is written for the A2D2-Dataset.
 Following parameters should be set:
 
     camera_image_root_path:     Path to folder where the different scenes are stored
-    sub_dir:                    The subdirectory of the different scenes
+    sub_dir:                    The subdirectory of the different scenes, you can iterate over all Subdirs by writing 'All', but then you also have to iterate over all file_names: 'All'
     file_name:                  If you want to create 1 image just write the name of the file (without .png suffix)
                                 if you want to loop through all images write 'All'
     cams_lidar_json_path:       Path to the cams_lidar.json file from the A2D2-Dataset
@@ -35,8 +35,8 @@ config_dict = {}
 config_dict = {
     'paths': {
         'camera_image_root_path': '/media/jan/TEST/camera_lidar_semantic/camera_lidar_semantic/',
-        'sub_dir': '20180810_142822/',
-        'file_name': '20180810142822_camera_frontcenter_000065457',
+        'sub_dir': 'All',
+        'file_name': 'All',
         'cams_lidar_json_path': '/media/jan/TEST/camera_lidar_semantic/cams_lidars.json',
         'result_export_path': '/media/jan/TEST/_results/final/',
         'sign_path': '/home/jan/PycharmProjects/a2d2_dataset_scripts/get_sign_into_image/50_sign.png',

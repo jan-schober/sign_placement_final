@@ -2,10 +2,11 @@ import csv
 import glob
 import json
 import os
+import sys
 import time
 
 import cv2
-
+import sys
 import debugging_skript_sign_placement
 import get_depth_street_edge
 import get_sign_into_image
@@ -37,8 +38,14 @@ start_time = time.time()
 config_dict_used = config_dict
 
 if config_dict_used['paths']['file_name'] == 'All':
-    path_for_glob = config_dict_used['paths']['camera_image_root_path'] + config_dict_used['paths']['sub_dir']
-    file_name_list = glob.glob(path_for_glob + 'camera/cam_front_center/*.png')
+    if config_dict_used['paths']['sub_dir'] == 'All':
+        path_for_glob = config_dict_used['paths']['camera_image_root_path']
+        file_name_list = glob.glob(path_for_glob+ '*/camera/cam_front_center/*.png')
+        print(file_name_list)
+        sys.exit()
+    else:
+        path_for_glob = config_dict_used['paths']['camera_image_root_path'] + config_dict_used['paths']['sub_dir']
+        file_name_list = glob.glob(path_for_glob + 'camera/cam_front_center/*.png')
 
 else:
     file_name_list = [config_dict_used['paths']['camera_image_root_path'] + config_dict_used['paths']['sub_dir'] + \
