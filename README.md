@@ -12,6 +12,23 @@ Examples can be found on [this confluence site](https://ess-confluence.fzi.de:84
 * [How the Free Space Check works](https://ess-confluence.fzi.de:8443/pages/viewpage.action?pageId=325287960&preview=/325287960/325287967/free_space.png)
 
 
+# Explanation of the csv-export:
+
+* depth_r, depth_l → Distance from lidar to the street edge in meters 
+ 
+* lidar_id_r, lidar_id_l → The Id of the used lidar point
+
+* x_r_street, y_r_street, x_l_street., y_l_street → The pixel coordinates of the street edges right and left side
+
+* x_r_sign, y_r_sign, x_l_sign, y_l_sign → The pixel coordinates of the sign top left corner
+
+* width, height → Width and height in Px of the sign
+* flag
+  * -1: correct placed sign
+  * -2: sign is to central or wrong side
+  * -3: sign is out of the image
+  * positive integer: idar id from free space check, object is under the sign
+
 # My config file:
 ```python
 config_dict = {  

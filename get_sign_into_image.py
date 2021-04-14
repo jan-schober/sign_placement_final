@@ -440,7 +440,7 @@ def check_free_space_left_side(
     return -1
 
 def out_of_image_check(x,y,w,h, x_max, y_max, flag):
-    if x >= x_max or x+w <= 0 or y-h >= y_max or y <= 0:
+    if x >= x_max or x+w <= 0 or y+h >= y_max or y <= 0:
         return -3
     else:
         return flag
